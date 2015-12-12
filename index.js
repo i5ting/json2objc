@@ -16,7 +16,10 @@ var js2objc = {
   },
   "boolean":function(str){
     return "@property(nonatomic,assign) BOOL " + str + ";"
-  }
+  },
+  "other" : function(str){
+    return "@property(nonatomic,copy) NSString *" + str + ";"
+  },
 }
 
 var Translate = {
@@ -31,8 +34,11 @@ var Translate = {
       var v = this.obj[k];
       // console.log(typeof v)
     
-      if(js2objc[typeof v]){
+      if(v && js2objc[typeof v]){
         var str = js2objc[typeof v](k);
+        console.log(str)
+      }else{
+        var str = js2objc['other'](k);
         console.log(str)
       }
     }
