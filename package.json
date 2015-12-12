@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm publish .",
-    "test": "DEBUG=kp node test.js"
+    "test": "node bin/json2objc.js user.json"
   },
   "preferGlobal": "true",
   "bin": {
