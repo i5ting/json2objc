@@ -19,13 +19,53 @@ Artwork by [i5ting](http://www.github.com/i5ting/).
 json2objc
 ```
 
-## Code
+## Examples
 
 ```
-  #!/usr/bin/env node
+➜  json2obj git:(master) json2objc user.json 
+user.json
+{
+    "uid": 1,
+    "username": "tanjw",
+    "email": "email@t.com",
+    "mobile": "13671286666",
+    "headface": null,
+    "created_at": "2015-09-05 03:15:51",
+    "last_login_time": "2015-11-29 01:32:44",
+    "last_ip": 167903491,
+    "last_gps": "",
+    "weixin_openid": "oRhdzt_Z52-P5t4qh-JpN7OA2Qx4",
+    "updated_at": "2015-11-29 01:32:44"
+}
 
-  var json2objc = require("json2objc");
-  json2objc();
+
+@property(nonatomic,assign) int uid;
+@property(nonatomic,copy) NSString *username;
+@property(nonatomic,copy) NSString *email;
+@property(nonatomic,copy) NSString *mobile;
+@property(nonatomic,copy) NSDictionary *headface;
+@property(nonatomic,copy) NSString *created_at;
+@property(nonatomic,copy) NSString *last_login_time;
+@property(nonatomic,assign) int last_ip;
+@property(nonatomic,copy) NSString *last_gps;
+@property(nonatomic,copy) NSString *weixin_openid;
+@property(nonatomic,copy) NSString *updated_at;
+
+
+@synthesize uid;
+@synthesize username;
+@synthesize email;
+@synthesize mobile;
+@synthesize headface;
+@synthesize created_at;
+@synthesize last_login_time;
+@synthesize last_ip;
+@synthesize last_gps;
+@synthesize weixin_openid;
+@synthesize updated_at;
+
+
+
 ```
 
 ## Contributing
