@@ -65,7 +65,17 @@ user.json
 @synthesize updated_at;
 
 
-
+self.uid = (int)[dict objectForKey:@"uid"];
+self.username = (NSString *)[dict objectForKey:@"username"];
+self.email = (NSString *)[dict objectForKey:@"email"];
+self.mobile = (NSString *)[dict objectForKey:@"mobile"];
+self.headface = (NSString *)[dict objectForKey:@"headface"];
+self.created_at = (NSString *)[dict objectForKey:@"created_at"];
+self.last_login_time = (NSString *)[dict objectForKey:@"last_login_time"];
+self.last_ip = (int)[dict objectForKey:@"last_ip"];
+self.last_gps = (NSString *)[dict objectForKey:@"last_gps"];
+self.weixin_openid = (NSString *)[dict objectForKey:@"weixin_openid"];
+self.updated_at = (NSString *)[dict objectForKey:@"updated_at"];
 ```
 
 ## Contributing

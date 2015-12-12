@@ -35,5 +35,6 @@ function dump(obj){
   Translate.dump();
   Translate.attr();
   Translate.syn();
+  Translate.assign();
 }
 

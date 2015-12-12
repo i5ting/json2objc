@@ -22,6 +22,30 @@ var js2objc = {
   },
 }
 
+var js2objc_assign = {
+  "string" : function(str){
+    return "self." + str + " = (NSString *)[dict objectForKey:@\"" + str + "\"];" 
+  },
+  "array" : function(str){
+    return "self." + str + " = (NSArray *)[dict objectForKey:@\"" + str + "\"];" 
+  },
+  "object" : function(str){
+    return "self." + str + " = (NSDictionary *)[dict objectForKey:@\"" + str + "\"];" 
+  },
+  "number":function(str){
+    return "self." + str + " = (int)[dict objectForKey:@\"" + str + "\"];" 
+  },
+  "date":function(str){
+    return "self." + str + " = (NSDate *)[dict objectForKey:@\"" + str + "\"];" 
+  },
+  "boolean":function(str){
+    return "self." + str + " = (BOOL)[dict objectForKey:@\"" + str + "\"];" 
+  },
+  "other" : function(str){
+    return "self." + str + " = (NSString *)[dict objectForKey:@\"" + str + "\"];" 
+  },
+}
+
 var Translate = {
   obj:{},
   dump: function(){
@@ -53,6 +77,23 @@ var Translate = {
     
       if(js2objc[typeof v]){
         var str = "@synthesize " + k + ";";
+        console.log(str)
+      }
+    }
+    
+    console.log('\n');
+  },
+  //@synthesize
+  assign:function(){
+    for(var k in this.obj){
+      var v = this.obj[k];
+      // console.log(typeof v)
+    
+      if(v && js2objc_assign[typeof v]){
+        var str = js2objc_assign[typeof v](k);
+        console.log(str)
+      }else{
+        var str = js2objc_assign['other'](k);
         console.log(str)
       }
     }
