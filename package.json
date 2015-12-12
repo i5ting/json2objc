@@ -1,11 +1,16 @@
 {
-  "name": "json2obj",
+  "name": "json2objc",
   "version": "1.0.0",
-  "description": "",
+  "description": "json2objc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm publish .",
+    "test": "DEBUG=kp node test.js"
   },
-  "author": "",
-  "license": "ISC"
+  "preferGlobal": "true",
+  "bin": {
+    "json2objc": "bin/json2objc.js"
+  },
+  "author": "i5ting",
+  "license": "MIT"
 }
