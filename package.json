@@ -1,6 +1,6 @@
 {
   "name": "json2objc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "json2objc",
   "main": "index.js",
   "scripts": {

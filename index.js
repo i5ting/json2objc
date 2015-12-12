@@ -84,20 +84,34 @@ var Translate = {
     console.log('\n');
   },
   //@synthesize
-  assign:function(){
+  assign:function(safe){
     for(var k in this.obj){
       var v = this.obj[k];
       // console.log(typeof v)
     
       if(v && js2objc_assign[typeof v]){
         var str = js2objc_assign[typeof v](k);
-        console.log(str)
+        if(safe){
+          w(k, str);
+        }else{
+          console.log(str)
+        }
       }else{
         var str = js2objc_assign['other'](k);
-        console.log(str)
+        if(safe){
+          w(k, str);
+        }else{
+          console.log(str)
+        }
       }
     }
     
+    
+    function w(k, str){
+      console.log('if([dict objectForKey:@\"'+ k + '\"]){')
+      console.log('  ' + str)
+      console.log('}')
+    }
     console.log('\n');
   }
 }

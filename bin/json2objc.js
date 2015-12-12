@@ -36,5 +36,7 @@ function dump(obj){
   Translate.attr();
   Translate.syn();
   Translate.assign();
+  
+  Translate.assign(true);
 }
 
