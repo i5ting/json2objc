@@ -85,6 +85,7 @@ var Translate = {
   },
   //@synthesize
   assign:function(safe){
+    console.log('- (id) initWithDict:(NSDictionary *)dict{');
     for(var k in this.obj){
       var v = this.obj[k];
       // console.log(typeof v)
@@ -105,12 +106,14 @@ var Translate = {
         }
       }
     }
-    
+    console.log('')
+    console.log('  return self;')
+    console.log('}')
     
     function w(k, str){
-      console.log('if([dict objectForKey:@\"'+ k + '\"]){')
-      console.log('  ' + str)
-      console.log('}')
+      console.log('  if(![[dict objectForKey:@\"'+ k + '\"] isKindOfClass:[NSNull class]]){')
+      console.log('    ' + str)
+      console.log('  }')
     }
     console.log('\n');
   }
