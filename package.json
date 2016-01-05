@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "handlebars": "^4.0.5",
+    "inflected": "^1.1.6",
     "tpl_apply": "^1.0.3"
   }
 }
