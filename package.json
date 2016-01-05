@@ -12,5 +12,9 @@
     "json2objc": "bin/json2objc.js"
   },
   "author": "i5ting",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "tpl_apply": "^1.0.3"
+  }
 }

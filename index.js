@@ -49,73 +49,78 @@ var js2objc_assign = {
 var Translate = {
   obj:{},
   dump: function(){
-    console.log(JSON.stringify(this.obj, null, 4));
-    console.log('\n');
+    var newstring = "";
+    newstring += (JSON.stringify(this.obj, null, 4));
+    newstring += ('\n');
+    // console.log(newstring)
   },
   attr:function(){
-
+    var arr = [];
     for(var k in this.obj){
       var v = this.obj[k];
-      // console.log(typeof v)
+      // newstring += (typeof v)
     
       if(v && js2objc[typeof v]){
         var str = js2objc[typeof v](k);
-        console.log(str)
+        arr.push(str);
       }else{
         var str = js2objc['other'](k);
-        console.log(str)
+        arr.push(str);
       }
     }
     
-    console.log('\n');
+    return arr;
   },
   //@synthesize
   syn:function(){
+    var arr = [];
     for(var k in this.obj){
       var v = this.obj[k];
-      // console.log(typeof v)
+      // newstring += (typeof v)
     
       if(js2objc[typeof v]){
         var str = "@synthesize " + k + ";";
-        console.log(str)
+        arr.push(str)
       }
     }
     
-    console.log('\n');
+    return arr;
   },
   //@synthesize
   assign:function(safe){
-    console.log('- (id) initWithDict:(NSDictionary *)dict{');
+    var arr = [];
+    arr.push('- (id) initWithDict:(NSDictionary *)dict{');
     for(var k in this.obj){
       var v = this.obj[k];
-      // console.log(typeof v)
+      // newstring += (typeof v)
     
       if(v && js2objc_assign[typeof v]){
         var str = js2objc_assign[typeof v](k);
         if(safe){
           w(k, str);
         }else{
-          console.log(str)
+          arr.push(str)
         }
       }else{
         var str = js2objc_assign['other'](k);
         if(safe){
           w(k, str);
         }else{
-          console.log(str)
+          arr.push(str)
         }
       }
     }
-    console.log('')
-    console.log('  return self;')
-    console.log('}')
+    arr.push('')
+    arr.push('  return self;')
+    arr.push('}')
     
     function w(k, str){
-      console.log('  if(![[dict objectForKey:@\"'+ k + '\"] isKindOfClass:[NSNull class]]){')
-      console.log('    ' + str)
-      console.log('  }')
+      arr.push("  if(![[dict objectForKey:@\"'+ k + '\"] isKindOfClass:[NSNull class]]){")
+      arr.push('    ' + str)
+      arr.push('  }')
     }
-    console.log('\n');
+    arr.push('\n');
+    return arr;
   }
 }
 
