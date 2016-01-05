@@ -58,7 +58,7 @@ function dump(obj){
     init_with_dict: init_with_dict.join('\n')
   }
   
-  console.log(c)
+  // console.log(c)
   
   generate(c);
 }
@@ -81,12 +81,12 @@ function generate(obj){
   source_array.forEach(function(item){
     var source = home_path + '/tpl/' + item;
     if(item.indexOf('.h')){
-      console.log('create '+obj.filename+' .h');
+      // console.log('create '+obj.filename+' .h');
       tpl.tpl_apply_with_register_helper(Handlebars, source, obj, process.cwd() + '/' + obj.filename + '.h');
     }
     
     if(item.indexOf('.m')){
-      console.log('create '+obj.filename+' .m');
+      // console.log('create '+obj.filename+' .m');
       tpl.tpl_apply_with_register_helper(Handlebars, source, obj, process.cwd() + '/' + obj.filename + '.m');
     }
     
