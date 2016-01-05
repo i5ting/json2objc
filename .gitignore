@@ -1,2 +1,4 @@
 **/*.json
 node_modules
+*.h
+*.m
