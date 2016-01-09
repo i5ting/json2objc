@@ -115,7 +115,7 @@ var Translate = {
     arr.push('}')
     
     function w(k, str){
-      arr.push("  if(![[dict objectForKey:@\"'+ k + '\"] isKindOfClass:[NSNull class]]){")
+      arr.push("  if(![[dict objectForKey:@\""+ k + "\"] isKindOfClass:[NSNull class]]){")
       arr.push('    ' + str)
       arr.push('  }')
     }
