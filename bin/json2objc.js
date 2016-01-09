@@ -80,13 +80,13 @@ function generate(obj){
 
   source_array.forEach(function(item){
     var source = home_path + '/tpl/' + item;
-    if(item.indexOf('.h')){
-      // console.log('create '+obj.filename+' .h');
+    if(!item.indexOf('HZStockInForm.h')){
+      console.log('create '+obj.filename+' .h ' + source);
       tpl.tpl_apply_with_register_helper(Handlebars, source, obj, process.cwd() + '/' + obj.filename + '.h');
     }
     
-    if(item.indexOf('.m')){
-      // console.log('create '+obj.filename+' .m');
+    if(!item.indexOf('HZStockInForm.m')){
+      console.log('create '+obj.filename+' .m ' + source);
       tpl.tpl_apply_with_register_helper(Handlebars, source, obj, process.cwd() + '/' + obj.filename + '.m');
     }
     
