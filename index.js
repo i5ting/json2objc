@@ -33,13 +33,13 @@ var js2objc_assign = {
     return "self." + str + " = (NSDictionary *)[dict objectForKey:@\"" + str + "\"];" 
   },
   "number":function(str){
-    return "self." + str + " = (int)[dict objectForKey:@\"" + str + "\"];" 
+    return "self." + str + " = (int)[dict integerValueForKey:@\"" + str + "\" default:0];" 
   },
   "date":function(str){
     return "self." + str + " = (NSDate *)[dict objectForKey:@\"" + str + "\"];" 
   },
   "boolean":function(str){
-    return "self." + str + " = (BOOL)[dict objectForKey:@\"" + str + "\"];" 
+    return "self." + str + " = (BOOL)[dict boolValueForKey:@\"" + str + "\" default:false];" 
   },
   "other" : function(str){
     return "self." + str + " = (NSString *)[dict objectForKey:@\"" + str + "\"];" 
